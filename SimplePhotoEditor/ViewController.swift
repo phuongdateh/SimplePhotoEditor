@@ -39,9 +39,11 @@ extension ViewController: UIImagePickerControllerDelegate,
 
         // Navigate EditorViewController
         let editorViewController = PhotoEditorViewController()
-        editorViewController.modalPresentationStyle = .overFullScreen
         editorViewController.uiImage = image
-        present(editorViewController, animated: true)
+
+        let navigationController = UINavigationController(rootViewController: editorViewController)
+        navigationController.modalPresentationStyle = .overFullScreen
+        present(navigationController, animated: true)
     }
 
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {

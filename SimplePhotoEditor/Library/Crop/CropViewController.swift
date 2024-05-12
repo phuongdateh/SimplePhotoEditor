@@ -84,25 +84,43 @@ class CropViewController: UIViewController {
         contentView.addSubview(cropView!)
     }
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        navigationController?.navigationBar.isTranslucent = false
-        navigationController?.toolbar.isTranslucent = false
+    fileprivate func setupNavigationItems() {
         navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(CropViewController.cancel(_:)))
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(CropViewController.done(_:)))
-        
-        if self.toolbarItems == nil {
-            let flexibleSpace = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
-            let constrainButton = UIBarButtonItem(title: "Constrain", style: .plain, target: self, action: #selector(CropViewController.constrain(_:)))
-            toolbarItems = [flexibleSpace, constrainButton, flexibleSpace]
-        }
+    }
 
+    fileprivate func setupToolbarItems() {
+        if toolbarItems == nil {
+            let constrainButton = UIBarButtonItem(title: "Resolution",
+                                                  style: .plain,
+                                                  target: self,
+                                                  action: #selector(CropViewController.constrain(_:)))
+            let rotateButton = UIBarButtonItem(title: "Rotate",
+                                               style: .plain, 
+                                               target: self,
+                                               action: #selector(CropViewController.rotate(_:)))
+            toolbarItems = [
+                .flexibleSpace,
+                rotateButton,
+                constrainButton,
+                .flexibleSpace,
+            ]
+        }
         navigationController?.isToolbarHidden = toolbarHidden
-        
+    }
+
+    fileprivate func setupCropView() {
         cropView?.image = image
         cropView?.rotationGestureRecognizer.isEnabled = rotationEnabled
     }
-    
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        setupNavigationItems()
+        setupToolbarItems()
+        setupCropView()
+    }
+
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
@@ -144,7 +162,13 @@ class CropViewController: UIViewController {
             delegate?.cropViewController(self, didFinishCroppingImage: image, transform: rotation, cropRect: rect)
         }
     }
-    
+
+    var rotationAngle: CGFloat = 0
+    @objc func rotate(_ sender: UIBarButtonItem) {
+        self.rotationAngle -= CGFloat.pi / 2
+        cropView?.rotationAngle = self.rotationAngle
+    }
+
     @objc func constrain(_ sender: UIBarButtonItem) {
         let actionSheet = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
         let original = UIAlertAction(title: "Original", style: .default) { [unowned self] action in
@@ -241,5 +265,11 @@ class CropViewController: UIViewController {
         let size = CGSize(width: minWidth, height: minHeight)
         cropViewCropRect.size = size
         cropView?.cropRect = cropViewCropRect
+    }
+}
+
+extension UIBarButtonItem {
+    static var flexibleSpace: UIBarButtonItem {
+        UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
     }
 }

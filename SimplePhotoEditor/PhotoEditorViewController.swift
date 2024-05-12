@@ -25,36 +25,27 @@ class PhotoEditorViewController: UIViewController {
     }
 
     fileprivate func initialize() {
-        
-    }
-    
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        view.backgroundColor = .black
-        imageView.image = uiImage
+        title = "Editor"
+        navigationItem.leftBarButtonItem = UIBarButtonItem(
+            barButtonSystemItem: .cancel,
+            target: self,
+            action: #selector(PhotoEditorViewController.close(_:)))
+        navigationItem.rightBarButtonItem = UIBarButtonItem(
+            barButtonSystemItem: .save,
+            target: self,
+            action: #selector(PhotoEditorViewController.save(_:)))
     }
 
-    @IBAction func cropBtnTouchUpInside(_ sender: UIButton) {
-        let controller = CropViewController()
-        controller.delegate = self
-        controller.image = uiImage
-        let navController = UINavigationController(rootViewController: controller)
-        navController.modalPresentationStyle = .fullScreen
-        present(navController, animated: true, completion: nil)
+    @objc func close(_ sender: UIBarButtonItem) {
+        dismiss(animated: true)
     }
-    
-    @IBAction func saveBtnTouchUpInside(_ sender: UIButton) {
-        guard let uiImage else {
-            return
-        }
+
+    @objc func save(_ sender: UIBarButtonItem) {
+        guard let uiImage else { return }
         UIImageWriteToSavedPhotosAlbum(
             uiImage,
             self,
-            #selector(self.saveImage(_:withPotentialError:contextInfo:)), nil)
+            #selector(PhotoEditorViewController.saveImage(_:withPotentialError:contextInfo:)), nil)
     }
 
     @objc func saveImage(_ image: UIImage,
@@ -65,10 +56,45 @@ class PhotoEditorViewController: UIViewController {
             message: "Image successfully saved to Photos library",
             preferredStyle: .alert)
         alert.addAction(
-            UIAlertAction(
-                title: "OK",
-                style: UIAlertAction.Style.default, handler: nil))
+            UIAlertAction(title: "Ok",
+                          style: .default,
+                          handler: { [weak self] _ in
+            self?.dismiss(animated: true)}))
         present(alert, animated: true, completion: nil)
+    }
+
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        view.backgroundColor = .black
+        imageView.image = uiImage
+        imageView.contentMode = .scaleAspectFill
+        setupToolbarItems()
+    }
+
+    fileprivate func setupToolbarItems() {
+        let cropButton = UIBarButtonItem(title: "Crop",
+                                         style: .plain,
+                                         target: self,
+                                         action: #selector(PhotoEditorViewController.crop(_:)))
+        toolbarItems = [
+            .flexibleSpace,
+            cropButton,
+            .flexibleSpace
+        ]
+        navigationController?.isToolbarHidden = false
+    }
+
+    @objc func crop(_ sender: UIBarButtonItem) {
+        let controller = CropViewController()
+        controller.delegate = self
+        controller.image = uiImage
+        let navController = UINavigationController(rootViewController: controller)
+        navController.modalPresentationStyle = .fullScreen
+        present(navController, animated: true, completion: nil)
     }
 }
 
