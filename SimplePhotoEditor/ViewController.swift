@@ -8,8 +8,16 @@
 import UIKit
 
 class ViewController: UIViewController {
+    private lazy var adjustView: AdjustmentsView = AdjustmentsView()
     override func viewDidLoad() {
         super.viewDidLoad()
+        view.addSubview(adjustView)
+        adjustView.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            adjustView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+            adjustView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            adjustView.trailingAnchor.constraint(equalTo: view.trailingAnchor)
+        ])
     }
 
     @IBAction func selectImageBtn(_ sender: UIButton) {
