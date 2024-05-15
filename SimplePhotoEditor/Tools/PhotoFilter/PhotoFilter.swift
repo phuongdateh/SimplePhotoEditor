@@ -11,9 +11,9 @@ import CoreImage
 protocol PhotoFilterProtocol {
     var inputImage: UIImage? { get set }
 
-    func adjustBrightness(value: Double)
-    func adjustContrast(value: Double)
-    func adjustSaturation(value: Double)
+    func updateBrightness(value: Float)
+    func updateContrast(value: Float)
+    func updateSaturation(value: Float)
     
     func outputImage() -> UIImage?
 }
@@ -21,31 +21,36 @@ protocol PhotoFilterProtocol {
 class PhotoFilter: PhotoFilterProtocol {
     var inputImage: UIImage? {
         didSet {
-            guard let image = inputImage, let ciImage = CIImage(image: image) else {
+            guard let image = inputImage,
+                  let ciImage = CIImage(image: image) else {
                 return
             }
             colorControlsFilter?.setValue(ciImage, forKey: kCIInputImageKey)
         }
     }
 
-    func outputImage() -> UIImage? {
-        guard let ciImage = colorControlsFilter?.outputImage else {
-            return inputImage
-        }
-        return UIImage(ciImage: ciImage)
-    }
-
+    lazy var context = CIContext(options: nil)
     lazy var colorControlsFilter = CIFilter(name: "CIColorControls")
 
-    func adjustContrast(value: Double) {
-        colorControlsFilter?.setValue(value, forKey: kCIInputContrastKey)
+    func outputImage() -> UIImage? {
+        guard let outputCIImage = colorControlsFilter?.outputImage else {
+            return inputImage
+        }
+        guard let outputCGImage = context.createCGImage(outputCIImage, from: outputCIImage.extent) else {
+            return inputImage
+        }
+        return UIImage(cgImage: outputCGImage)
     }
 
-    func adjustBrightness(value: Double) {
-        colorControlsFilter?.setValue(value, forKey: kCIInputBrightnessKey)
+    func updateContrast(value: Float) {
+        colorControlsFilter?.setValue(NSNumber(value: value), forKey: kCIInputContrastKey)
     }
 
-    func adjustSaturation(value: Double) {
-        colorControlsFilter?.setValue(value, forKey: kCIInputSaturationKey)
+    func updateBrightness(value: Float) {
+        colorControlsFilter?.setValue(NSNumber(value: value), forKey: kCIInputBrightnessKey)
+    }
+
+    func updateSaturation(value: Float) {
+        colorControlsFilter?.setValue(NSNumber(value: value), forKey: kCIInputSaturationKey)
     }
 }

@@ -20,14 +20,11 @@
 		1AB3276D2BEF55E500B9652E /* CropView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AB3276C2BEF55E500B9652E /* CropView.swift */; };
 		1AB327702BEF563600B9652E /* UIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AB3276F2BEF563600B9652E /* UIImage.swift */; };
 		1AB327722BEFA5AF00B9652E /* CropViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AB327712BEFA5AF00B9652E /* CropViewController.swift */; };
-		1AB327752BF1EF5400B9652E /* AdjustmentsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AB327742BF1EF5400B9652E /* AdjustmentsView.swift */; };
 		1AB327782BF312A700B9652E /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AB327772BF312A700B9652E /* UIView.swift */; };
-		1AB3277E2BF3642700B9652E /* AdjustmentsUiControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AB3277D2BF3642700B9652E /* AdjustmentsUiControl.swift */; };
-		1AB327802BF3B32100B9652E /* AdjustmentCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AB3277F2BF3B32100B9652E /* AdjustmentCollectionCell.swift */; };
 		1AB327822BF3B35200B9652E /* AdjustmentCellData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AB327812BF3B35200B9652E /* AdjustmentCellData.swift */; };
 		1AB327872BF44DD500B9652E /* PhotoFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AB327862BF44DD500B9652E /* PhotoFilter.swift */; };
-		1AB327892BF4755400B9652E /* CenteredSliderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AB327882BF4755400B9652E /* CenteredSliderView.swift */; };
-		1AB3278D2BF4758A00B9652E /* CenteredSliderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1AB3278C2BF4758A00B9652E /* CenteredSliderView.xib */; };
+		1AB327912BF4BE4800B9652E /* PhotoEditorViewController+CropHandle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AB327902BF4BE4800B9652E /* PhotoEditorViewController+CropHandle.swift */; };
+		1AB327932BF4BE8600B9652E /* PhotoEditorViewController+FilterHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AB327922BF4BE8600B9652E /* PhotoEditorViewController+FilterHandler.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,14 +43,11 @@
 		1AB3276C2BEF55E500B9652E /* CropView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CropView.swift; sourceTree = "<group>"; };
 		1AB3276F2BEF563600B9652E /* UIImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImage.swift; sourceTree = "<group>"; };
 		1AB327712BEFA5AF00B9652E /* CropViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CropViewController.swift; sourceTree = "<group>"; };
-		1AB327742BF1EF5400B9652E /* AdjustmentsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdjustmentsView.swift; sourceTree = "<group>"; };
 		1AB327772BF312A700B9652E /* UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
-		1AB3277D2BF3642700B9652E /* AdjustmentsUiControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdjustmentsUiControl.swift; sourceTree = "<group>"; };
-		1AB3277F2BF3B32100B9652E /* AdjustmentCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdjustmentCollectionCell.swift; sourceTree = "<group>"; };
 		1AB327812BF3B35200B9652E /* AdjustmentCellData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdjustmentCellData.swift; sourceTree = "<group>"; };
 		1AB327862BF44DD500B9652E /* PhotoFilter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoFilter.swift; sourceTree = "<group>"; };
-		1AB327882BF4755400B9652E /* CenteredSliderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CenteredSliderView.swift; sourceTree = "<group>"; };
-		1AB3278C2BF4758A00B9652E /* CenteredSliderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CenteredSliderView.xib; sourceTree = "<group>"; };
+		1AB327902BF4BE4800B9652E /* PhotoEditorViewController+CropHandle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PhotoEditorViewController+CropHandle.swift"; sourceTree = "<group>"; };
+		1AB327922BF4BE8600B9652E /* PhotoEditorViewController+FilterHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PhotoEditorViewController+FilterHandler.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -133,9 +127,6 @@
 		1AB327732BF1EF4300B9652E /* AdjustmentsView */ = {
 			isa = PBXGroup;
 			children = (
-				1AB327742BF1EF5400B9652E /* AdjustmentsView.swift */,
-				1AB3277D2BF3642700B9652E /* AdjustmentsUiControl.swift */,
-				1AB3277F2BF3B32100B9652E /* AdjustmentCollectionCell.swift */,
 				1AB327812BF3B35200B9652E /* AdjustmentCellData.swift */,
 			);
 			path = AdjustmentsView;
@@ -161,6 +152,8 @@
 			isa = PBXGroup;
 			children = (
 				1AB327622BEF1ADF00B9652E /* PhotoEditorViewController.swift */,
+				1AB327902BF4BE4800B9652E /* PhotoEditorViewController+CropHandle.swift */,
+				1AB327922BF4BE8600B9652E /* PhotoEditorViewController+FilterHandler.swift */,
 				1AB327632BEF1ADF00B9652E /* PhotoEditorViewController.xib */,
 			);
 			path = PhotoEditor;
@@ -177,19 +170,9 @@
 		1AB3278E2BF4819000B9652E /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				1AB3278F2BF4819F00B9652E /* CenteredSliderView */,
 				1AB327732BF1EF4300B9652E /* AdjustmentsView */,
 			);
 			path = Views;
-			sourceTree = "<group>";
-		};
-		1AB3278F2BF4819F00B9652E /* CenteredSliderView */ = {
-			isa = PBXGroup;
-			children = (
-				1AB327882BF4755400B9652E /* CenteredSliderView.swift */,
-				1AB3278C2BF4758A00B9652E /* CenteredSliderView.xib */,
-			);
-			path = CenteredSliderView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -250,7 +233,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1AB3278D2BF4758A00B9652E /* CenteredSliderView.xib in Resources */,
 				1AB327562BEF143A00B9652E /* Assets.xcassets in Resources */,
 				1AB327592BEF143A00B9652E /* Base in Resources */,
 				1AB327642BEF1ADF00B9652E /* PhotoEditorViewController.xib in Resources */,
@@ -265,22 +247,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1AB327802BF3B32100B9652E /* AdjustmentCollectionCell.swift in Sources */,
 				1AB327512BEF143900B9652E /* ViewController.swift in Sources */,
 				1AB327822BF3B35200B9652E /* AdjustmentCellData.swift in Sources */,
 				1AB327702BEF563600B9652E /* UIImage.swift in Sources */,
+				1AB327912BF4BE4800B9652E /* PhotoEditorViewController+CropHandle.swift in Sources */,
 				1AB327782BF312A700B9652E /* UIView.swift in Sources */,
 				1AB3274D2BEF143900B9652E /* AppDelegate.swift in Sources */,
 				1AB327652BEF1ADF00B9652E /* PhotoEditorViewController.swift in Sources */,
 				1AB3276D2BEF55E500B9652E /* CropView.swift in Sources */,
 				1AB327692BEF541800B9652E /* CropRectView.swift in Sources */,
-				1AB3277E2BF3642700B9652E /* AdjustmentsUiControl.swift in Sources */,
 				1AB3274F2BEF143900B9652E /* SceneDelegate.swift in Sources */,
-				1AB327892BF4755400B9652E /* CenteredSliderView.swift in Sources */,
 				1AB3276B2BEF544200B9652E /* ResizeControl.swift in Sources */,
-				1AB327752BF1EF5400B9652E /* AdjustmentsView.swift in Sources */,
 				1AB327872BF44DD500B9652E /* PhotoFilter.swift in Sources */,
 				1AB327722BEFA5AF00B9652E /* CropViewController.swift in Sources */,
+				1AB327932BF4BE8600B9652E /* PhotoEditorViewController+FilterHandler.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
