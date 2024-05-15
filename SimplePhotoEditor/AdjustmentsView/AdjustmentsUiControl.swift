@@ -8,36 +8,45 @@
 import Foundation
 import UIKit
 
-protocol AdjustmentsUiControlInterface: UICollectionViewDelegate,
+protocol AdjustmentsUiControlProtocol: UICollectionViewDelegate,
                                        UICollectionViewDataSource {
     func collectionViewLayout() -> UICollectionViewLayout
 }
 
-class AdjustmentsUiControlV2: NSObject,
-                              AdjustmentsUiControlInterface {
+class AdjustmentsUiControl: NSObject,
+                            AdjustmentsUiControlProtocol {
     lazy var cellDatas: [AdjustmentCellData] = AdjustmentType.allCases.map { AdjustmentCellData(type: $0) }
+    var selectedData: AdjustmentCellData!
 
     enum AllSection: Int {
         case main
     }
 
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        selectedData = cellDatas[indexPath.row]
+        collectionView.reloadData()
+    }
+
     func collectionViewLayout() -> UICollectionViewLayout {
         let layout = UICollectionViewFlowLayout()
-        layout.itemSize = CGSize(width: 150, height: 50)
+        layout.itemSize = CGSize(width: 100, height: 100)
         layout.scrollDirection = .horizontal
         return layout
     }
 
     func collectionView(_ collectionView: UICollectionView,
                         numberOfItemsInSection section: Int) -> Int {
-        self.cellDatas.count
+        cellDatas.count
     }
 
     func collectionView(_ collectionView: UICollectionView, 
                         cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell: AdjustmentCollectionCell? = collectionView.dequeueReusableCell(withReuseIdentifier: "\(AdjustmentCollectionCell.self)",
-                                                                                 for: indexPath) as? AdjustmentCollectionCell
-        cell?.setup(cellDatas[indexPath.row])
+                                                                                  for: indexPath) as? AdjustmentCollectionCell
+        let data = cellDatas[indexPath.row]
+        cell?.setup(
+            data,
+            isSelected: selectedData != nil ? data == selectedData : false)
         return cell ?? UICollectionViewCell()
     }
 }

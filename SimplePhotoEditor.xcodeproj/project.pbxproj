@@ -22,9 +22,9 @@
 		1AB327722BEFA5AF00B9652E /* CropViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AB327712BEFA5AF00B9652E /* CropViewController.swift */; };
 		1AB327752BF1EF5400B9652E /* AdjustmentsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AB327742BF1EF5400B9652E /* AdjustmentsView.swift */; };
 		1AB327782BF312A700B9652E /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AB327772BF312A700B9652E /* UIView.swift */; };
-		1AB3277B2BF3594E00B9652E /* AdjustmentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AB327792BF3594E00B9652E /* AdjustmentCell.swift */; };
-		1AB3277C2BF3594E00B9652E /* AdjustmentCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1AB3277A2BF3594E00B9652E /* AdjustmentCell.xib */; };
 		1AB3277E2BF3642700B9652E /* AdjustmentsUiControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AB3277D2BF3642700B9652E /* AdjustmentsUiControl.swift */; };
+		1AB327802BF3B32100B9652E /* AdjustmentCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AB3277F2BF3B32100B9652E /* AdjustmentCollectionCell.swift */; };
+		1AB327822BF3B35200B9652E /* AdjustmentCellData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AB327812BF3B35200B9652E /* AdjustmentCellData.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -45,9 +45,9 @@
 		1AB327712BEFA5AF00B9652E /* CropViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CropViewController.swift; sourceTree = "<group>"; };
 		1AB327742BF1EF5400B9652E /* AdjustmentsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdjustmentsView.swift; sourceTree = "<group>"; };
 		1AB327772BF312A700B9652E /* UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
-		1AB327792BF3594E00B9652E /* AdjustmentCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdjustmentCell.swift; sourceTree = "<group>"; };
-		1AB3277A2BF3594E00B9652E /* AdjustmentCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AdjustmentCell.xib; sourceTree = "<group>"; };
 		1AB3277D2BF3642700B9652E /* AdjustmentsUiControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdjustmentsUiControl.swift; sourceTree = "<group>"; };
+		1AB3277F2BF3B32100B9652E /* AdjustmentCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdjustmentCollectionCell.swift; sourceTree = "<group>"; };
+		1AB327812BF3B35200B9652E /* AdjustmentCellData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdjustmentCellData.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -129,8 +129,8 @@
 			children = (
 				1AB327742BF1EF5400B9652E /* AdjustmentsView.swift */,
 				1AB3277D2BF3642700B9652E /* AdjustmentsUiControl.swift */,
-				1AB327792BF3594E00B9652E /* AdjustmentCell.swift */,
-				1AB3277A2BF3594E00B9652E /* AdjustmentCell.xib */,
+				1AB3277F2BF3B32100B9652E /* AdjustmentCollectionCell.swift */,
+				1AB327812BF3B35200B9652E /* AdjustmentCellData.swift */,
 			);
 			path = AdjustmentsView;
 			sourceTree = "<group>";
@@ -203,7 +203,6 @@
 			files = (
 				1AB327562BEF143A00B9652E /* Assets.xcassets in Resources */,
 				1AB327592BEF143A00B9652E /* Base in Resources */,
-				1AB3277C2BF3594E00B9652E /* AdjustmentCell.xib in Resources */,
 				1AB327642BEF1ADF00B9652E /* PhotoEditorViewController.xib in Resources */,
 				1AB327542BEF143900B9652E /* Base in Resources */,
 			);
@@ -216,7 +215,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1AB327802BF3B32100B9652E /* AdjustmentCollectionCell.swift in Sources */,
 				1AB327512BEF143900B9652E /* ViewController.swift in Sources */,
+				1AB327822BF3B35200B9652E /* AdjustmentCellData.swift in Sources */,
 				1AB327702BEF563600B9652E /* UIImage.swift in Sources */,
 				1AB327782BF312A700B9652E /* UIView.swift in Sources */,
 				1AB3274D2BEF143900B9652E /* AppDelegate.swift in Sources */,
@@ -227,7 +228,6 @@
 				1AB3274F2BEF143900B9652E /* SceneDelegate.swift in Sources */,
 				1AB3276B2BEF544200B9652E /* ResizeControl.swift in Sources */,
 				1AB327752BF1EF5400B9652E /* AdjustmentsView.swift in Sources */,
-				1AB3277B2BF3594E00B9652E /* AdjustmentCell.swift in Sources */,
 				1AB327722BEFA5AF00B9652E /* CropViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

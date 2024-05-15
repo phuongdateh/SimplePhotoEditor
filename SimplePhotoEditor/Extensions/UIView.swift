@@ -9,7 +9,13 @@ import Foundation
 import UIKit
 
 extension UIView {
-    
+    func rounded(cornerRadius: CGFloat = 5,
+                 color: UIColor = UIColor.gray) {
+        layer.cornerRadius = cornerRadius
+        layer.borderWidth = 1.0
+        layer.borderColor = color.cgColor
+    }
+
     func hide() {
         self.isHidden = true
         self.alpha = 0

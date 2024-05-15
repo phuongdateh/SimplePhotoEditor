@@ -239,11 +239,11 @@ open class CropView: UIView,
     }
     
     open func resetCropRectAnimated(_ animated: Bool) {
-        if animated {
-            UIView.beginAnimations(nil, context: nil)
-            UIView.setAnimationDuration(0.25)
-            UIView.setAnimationBeginsFromCurrentState(true)
-        }
+//        if animated {
+//            UIView.beginAnimations(nil, context: nil)
+//            UIView.setAnimationDuration(0.25)
+//            UIView.setAnimationBeginsFromCurrentState(true)
+//        }
         imageView?.transform = CGAffineTransform.identity
         let contentSize = scrollView.contentSize
         let initialRect = CGRect(x: 0, y: 0, width: contentSize.width, height: contentSize.height)
@@ -251,9 +251,9 @@ open class CropView: UIView,
         
         layoutCropRectViewWithCropRect(scrollView.bounds)
         
-        if animated {
-            UIView.commitAnimations()
-        }
+//        if animated {
+//            UIView.commitAnimations()
+//        }
     }
     
     open func zoomedCropRect() -> CGRect {
