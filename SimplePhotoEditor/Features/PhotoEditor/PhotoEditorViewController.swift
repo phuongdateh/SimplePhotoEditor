@@ -37,7 +37,6 @@ class PhotoEditorViewController: UIViewController {
         didSet {
             guard let originalImage = self.originalImage else { return }
             var scaledSize = imageView.bounds.size
-            // 1x, 2x, 3x(10x max)
             let scale = UIScreen.main.scale
             scaledSize = CGSize(width: scaledSize.width * scale, height: scaledSize.height * scale)
             scaledImage = originalImage.imageByScaling(toSize: scaledSize)
@@ -59,31 +58,6 @@ class PhotoEditorViewController: UIViewController {
 
     @objc func close(_ sender: UIBarButtonItem) {
         dismiss(animated: true)
-    }
-
-    @objc func save(_ sender: UIBarButtonItem) {
-        guard let originalImage else { return }
-        UIImageWriteToSavedPhotosAlbum(
-            originalImage,
-            self,
-            #selector(PhotoEditorViewController.saveImage(_:withPotentialError:contextInfo:)), nil)
-    }
-
-    @objc func saveImage(_ image: UIImage,
-                         withPotentialError error: NSErrorPointer,
-                         contextInfo: UnsafeRawPointer) {
-        let alert = UIAlertController(
-            title: "Image Saved",
-            message: "Image successfully saved to Photos library",
-            preferredStyle: .alert)
-        alert.addAction(
-            UIAlertAction(title: "Ok",
-                          style: .default,
-                          handler: { [weak self] _ in
-            self?.dismiss(animated: true)}))
-        DispatchQueue.main.async { [weak self] in
-            self?.present(alert, animated: true, completion: nil)
-        }
     }
 
     required init?(coder: NSCoder) {

@@ -12,7 +12,7 @@ extension PhotoEditorViewController: CropViewControllerDelegate {
     @objc func crop(_ sender: UIBarButtonItem) {
         let controller = CropViewController()
         controller.delegate = self
-        controller.image = originalImage
+        controller.image = photoFilter.outputImage()
         let navController = UINavigationController(rootViewController: controller)
         navController.modalPresentationStyle = .fullScreen
         present(navController, animated: true, completion: nil)
@@ -28,6 +28,7 @@ extension PhotoEditorViewController: CropViewControllerDelegate {
                             transform: CGAffineTransform,
                             cropRect: CGRect) {
         originalImage = image
+        imageView.image = originalImage
         controller.dismiss(animated: true)
     }
 }

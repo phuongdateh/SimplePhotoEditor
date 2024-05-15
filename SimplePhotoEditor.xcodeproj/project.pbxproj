@@ -24,7 +24,8 @@
 		1AB327822BF3B35200B9652E /* AdjustmentCellData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AB327812BF3B35200B9652E /* AdjustmentCellData.swift */; };
 		1AB327872BF44DD500B9652E /* PhotoFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AB327862BF44DD500B9652E /* PhotoFilter.swift */; };
 		1AB327912BF4BE4800B9652E /* PhotoEditorViewController+CropHandle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AB327902BF4BE4800B9652E /* PhotoEditorViewController+CropHandle.swift */; };
-		1AB327932BF4BE8600B9652E /* PhotoEditorViewController+FilterHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AB327922BF4BE8600B9652E /* PhotoEditorViewController+FilterHandler.swift */; };
+		1AB327932BF4BE8600B9652E /* PhotoEditorViewController+FilterHandle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AB327922BF4BE8600B9652E /* PhotoEditorViewController+FilterHandle.swift */; };
+		1AB327952BF4BF6E00B9652E /* PhotoEditorViewController+SaveHandle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AB327942BF4BF6E00B9652E /* PhotoEditorViewController+SaveHandle.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -47,7 +48,8 @@
 		1AB327812BF3B35200B9652E /* AdjustmentCellData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdjustmentCellData.swift; sourceTree = "<group>"; };
 		1AB327862BF44DD500B9652E /* PhotoFilter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoFilter.swift; sourceTree = "<group>"; };
 		1AB327902BF4BE4800B9652E /* PhotoEditorViewController+CropHandle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PhotoEditorViewController+CropHandle.swift"; sourceTree = "<group>"; };
-		1AB327922BF4BE8600B9652E /* PhotoEditorViewController+FilterHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PhotoEditorViewController+FilterHandler.swift"; sourceTree = "<group>"; };
+		1AB327922BF4BE8600B9652E /* PhotoEditorViewController+FilterHandle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PhotoEditorViewController+FilterHandle.swift"; sourceTree = "<group>"; };
+		1AB327942BF4BF6E00B9652E /* PhotoEditorViewController+SaveHandle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PhotoEditorViewController+SaveHandle.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -153,7 +155,8 @@
 			children = (
 				1AB327622BEF1ADF00B9652E /* PhotoEditorViewController.swift */,
 				1AB327902BF4BE4800B9652E /* PhotoEditorViewController+CropHandle.swift */,
-				1AB327922BF4BE8600B9652E /* PhotoEditorViewController+FilterHandler.swift */,
+				1AB327922BF4BE8600B9652E /* PhotoEditorViewController+FilterHandle.swift */,
+				1AB327942BF4BF6E00B9652E /* PhotoEditorViewController+SaveHandle.swift */,
 				1AB327632BEF1ADF00B9652E /* PhotoEditorViewController.xib */,
 			);
 			path = PhotoEditor;
@@ -257,10 +260,11 @@
 				1AB3276D2BEF55E500B9652E /* CropView.swift in Sources */,
 				1AB327692BEF541800B9652E /* CropRectView.swift in Sources */,
 				1AB3274F2BEF143900B9652E /* SceneDelegate.swift in Sources */,
+				1AB327952BF4BF6E00B9652E /* PhotoEditorViewController+SaveHandle.swift in Sources */,
 				1AB3276B2BEF544200B9652E /* ResizeControl.swift in Sources */,
 				1AB327872BF44DD500B9652E /* PhotoFilter.swift in Sources */,
 				1AB327722BEFA5AF00B9652E /* CropViewController.swift in Sources */,
-				1AB327932BF4BE8600B9652E /* PhotoEditorViewController+FilterHandler.swift in Sources */,
+				1AB327932BF4BE8600B9652E /* PhotoEditorViewController+FilterHandle.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
