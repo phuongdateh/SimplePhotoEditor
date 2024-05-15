@@ -12,6 +12,7 @@ class PhotoEditorViewController: UIViewController {
     @IBOutlet weak var adjustContentView: UIStackView!
 
     private lazy var adjustView: AdjustmentsView = AdjustmentsView()
+    private lazy var filter: PhotoFilterProtocol = PhotoFilter()
     
     var uiImage: UIImage? {
         didSet {
@@ -84,26 +85,18 @@ class PhotoEditorViewController: UIViewController {
                                          style: .plain,
                                          target: self,
                                          action: #selector(PhotoEditorViewController.crop(_:)))
-        let adjustButton = UIBarButtonItem(title: "Adjust",
-                                           style: .plain,
-                                           target: self,
-                                           action: #selector(PhotoEditorViewController.adjust(_:)))
         toolbarItems = [
             .flexibleSpace,
             cropButton,
-            adjustButton,
             .flexibleSpace
         ]
         navigationController?.isToolbarHidden = false
     }
 
     fileprivate func setupAdjustView() {
-        adjustView.animateHide()
         adjustContentView.addArrangedSubview(adjustView)
-    }
 
-    @objc func adjust(_ sender: UIBarButtonItem) {
-        adjustView.animateShow()
+        
     }
 
     @objc func crop(_ sender: UIBarButtonItem) {
@@ -127,15 +120,5 @@ extension PhotoEditorViewController: CropViewControllerDelegate {
                             cropRect: CGRect) {
         self.uiImage = image
         controller.dismiss(animated: true)
-
-        let inputImage = CIImage(image: image)
-        let filter = CIFilter(name: "CIColorControls")
-        filter?.setValue(inputImage, forKey: kCIInputImageKey)
-        filter?.setValue(NSNumber(0.4), forKey: kCIInputContrastKey)
-        filter?.setValue(NSNumber(0.6), forKey: kCIInputBrightnessKey)
-
-        guard let ciImage = filter?.outputImage else { return }
-        let outputImage: UIImage? = UIImage(ciImage: ciImage)
-        self.uiImage = outputImage
     }
 }

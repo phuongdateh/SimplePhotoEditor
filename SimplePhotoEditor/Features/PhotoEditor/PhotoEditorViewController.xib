@@ -21,10 +21,10 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="DfH-Yi-BTl">
-                    <rect key="frame" x="0.0" y="213" width="393" height="426"/>
+                    <rect key="frame" x="0.0" y="163" width="393" height="426"/>
                 </imageView>
                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="O0r-BB-Jw8">
-                    <rect key="frame" x="0.0" y="655" width="393" height="130"/>
+                    <rect key="frame" x="0.0" y="605" width="393" height="130"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="130" id="G7g-4h-qFA"/>
                     </constraints>
@@ -36,7 +36,7 @@
                 <constraint firstAttribute="trailing" secondItem="O0r-BB-Jw8" secondAttribute="trailing" id="F9W-Tl-el1"/>
                 <constraint firstItem="DfH-Yi-BTl" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="JCc-VR-XoS"/>
                 <constraint firstItem="DfH-Yi-BTl" firstAttribute="height" secondItem="i5M-Pr-FkT" secondAttribute="height" multiplier="0.5" id="MpV-XD-p7U"/>
-                <constraint firstItem="DfH-Yi-BTl" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="PZ5-I3-CJS"/>
+                <constraint firstItem="DfH-Yi-BTl" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" constant="-50" id="PZ5-I3-CJS"/>
                 <constraint firstItem="O0r-BB-Jw8" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="Rui-9J-yMm"/>
                 <constraint firstItem="DfH-Yi-BTl" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="nQc-0h-eJ0"/>
                 <constraint firstAttribute="trailing" secondItem="DfH-Yi-BTl" secondAttribute="trailing" id="z8E-Z4-5aY"/>

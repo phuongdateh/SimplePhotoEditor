@@ -11,7 +11,6 @@ import UIKit
 enum AdjustmentType: String, CaseIterable, Hashable {
     case brightness
     case contrast
-    case highlight
     case saturation
 }
 

@@ -25,6 +25,9 @@
 		1AB3277E2BF3642700B9652E /* AdjustmentsUiControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AB3277D2BF3642700B9652E /* AdjustmentsUiControl.swift */; };
 		1AB327802BF3B32100B9652E /* AdjustmentCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AB3277F2BF3B32100B9652E /* AdjustmentCollectionCell.swift */; };
 		1AB327822BF3B35200B9652E /* AdjustmentCellData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AB327812BF3B35200B9652E /* AdjustmentCellData.swift */; };
+		1AB327872BF44DD500B9652E /* PhotoFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AB327862BF44DD500B9652E /* PhotoFilter.swift */; };
+		1AB327892BF4755400B9652E /* CenteredSliderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AB327882BF4755400B9652E /* CenteredSliderView.swift */; };
+		1AB3278D2BF4758A00B9652E /* CenteredSliderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1AB3278C2BF4758A00B9652E /* CenteredSliderView.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -48,6 +51,9 @@
 		1AB3277D2BF3642700B9652E /* AdjustmentsUiControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdjustmentsUiControl.swift; sourceTree = "<group>"; };
 		1AB3277F2BF3B32100B9652E /* AdjustmentCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdjustmentCollectionCell.swift; sourceTree = "<group>"; };
 		1AB327812BF3B35200B9652E /* AdjustmentCellData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdjustmentCellData.swift; sourceTree = "<group>"; };
+		1AB327862BF44DD500B9652E /* PhotoFilter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoFilter.swift; sourceTree = "<group>"; };
+		1AB327882BF4755400B9652E /* CenteredSliderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CenteredSliderView.swift; sourceTree = "<group>"; };
+		1AB3278C2BF4758A00B9652E /* CenteredSliderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CenteredSliderView.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,14 +86,13 @@
 		1AB3274B2BEF143900B9652E /* SimplePhotoEditor */ = {
 			isa = PBXGroup;
 			children = (
+				1AB3278E2BF4819000B9652E /* Views */,
+				1AB327832BF4486300B9652E /* Features */,
 				1AB327762BF3129D00B9652E /* Extensions */,
-				1AB327732BF1EF4300B9652E /* AdjustmentsView */,
-				1AB327662BEF2AFF00B9652E /* Library */,
+				1AB327662BEF2AFF00B9652E /* Tools */,
 				1AB3274C2BEF143900B9652E /* AppDelegate.swift */,
 				1AB3274E2BEF143900B9652E /* SceneDelegate.swift */,
 				1AB327502BEF143900B9652E /* ViewController.swift */,
-				1AB327622BEF1ADF00B9652E /* PhotoEditorViewController.swift */,
-				1AB327632BEF1ADF00B9652E /* PhotoEditorViewController.xib */,
 				1AB327522BEF143900B9652E /* Main.storyboard */,
 				1AB327552BEF143A00B9652E /* Assets.xcassets */,
 				1AB327572BEF143A00B9652E /* LaunchScreen.storyboard */,
@@ -96,13 +101,14 @@
 			path = SimplePhotoEditor;
 			sourceTree = "<group>";
 		};
-		1AB327662BEF2AFF00B9652E /* Library */ = {
+		1AB327662BEF2AFF00B9652E /* Tools */ = {
 			isa = PBXGroup;
 			children = (
+				1AB327852BF44CED00B9652E /* PhotoFilter */,
 				1AB3276E2BEF562600B9652E /* Extentions */,
 				1AB327672BEF2B2A00B9652E /* Crop */,
 			);
-			path = Library;
+			path = Tools;
 			sourceTree = "<group>";
 		};
 		1AB327672BEF2B2A00B9652E /* Crop */ = {
@@ -141,6 +147,49 @@
 				1AB327772BF312A700B9652E /* UIView.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		1AB327832BF4486300B9652E /* Features */ = {
+			isa = PBXGroup;
+			children = (
+				1AB327842BF4487200B9652E /* PhotoEditor */,
+			);
+			path = Features;
+			sourceTree = "<group>";
+		};
+		1AB327842BF4487200B9652E /* PhotoEditor */ = {
+			isa = PBXGroup;
+			children = (
+				1AB327622BEF1ADF00B9652E /* PhotoEditorViewController.swift */,
+				1AB327632BEF1ADF00B9652E /* PhotoEditorViewController.xib */,
+			);
+			path = PhotoEditor;
+			sourceTree = "<group>";
+		};
+		1AB327852BF44CED00B9652E /* PhotoFilter */ = {
+			isa = PBXGroup;
+			children = (
+				1AB327862BF44DD500B9652E /* PhotoFilter.swift */,
+			);
+			path = PhotoFilter;
+			sourceTree = "<group>";
+		};
+		1AB3278E2BF4819000B9652E /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				1AB3278F2BF4819F00B9652E /* CenteredSliderView */,
+				1AB327732BF1EF4300B9652E /* AdjustmentsView */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		1AB3278F2BF4819F00B9652E /* CenteredSliderView */ = {
+			isa = PBXGroup;
+			children = (
+				1AB327882BF4755400B9652E /* CenteredSliderView.swift */,
+				1AB3278C2BF4758A00B9652E /* CenteredSliderView.xib */,
+			);
+			path = CenteredSliderView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -201,6 +250,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1AB3278D2BF4758A00B9652E /* CenteredSliderView.xib in Resources */,
 				1AB327562BEF143A00B9652E /* Assets.xcassets in Resources */,
 				1AB327592BEF143A00B9652E /* Base in Resources */,
 				1AB327642BEF1ADF00B9652E /* PhotoEditorViewController.xib in Resources */,
@@ -226,8 +276,10 @@
 				1AB327692BEF541800B9652E /* CropRectView.swift in Sources */,
 				1AB3277E2BF3642700B9652E /* AdjustmentsUiControl.swift in Sources */,
 				1AB3274F2BEF143900B9652E /* SceneDelegate.swift in Sources */,
+				1AB327892BF4755400B9652E /* CenteredSliderView.swift in Sources */,
 				1AB3276B2BEF544200B9652E /* ResizeControl.swift in Sources */,
 				1AB327752BF1EF5400B9652E /* AdjustmentsView.swift in Sources */,
+				1AB327872BF44DD500B9652E /* PhotoFilter.swift in Sources */,
 				1AB327722BEFA5AF00B9652E /* CropViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

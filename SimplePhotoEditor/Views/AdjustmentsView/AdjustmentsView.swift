@@ -10,20 +10,14 @@ import UIKit
 
 final class AdjustmentsView: UIView {
     private lazy var uiControl: AdjustmentsUiControlProtocol = AdjustmentsUiControl()
-    private lazy var uiSlider: UISlider = {
-        makeUISlider()
-    }()
+    private lazy var uiSlider: CenteredSliderView = CenteredSliderView(frame: .zero)
     private lazy var uiCollectionView: UICollectionView = {
         UICollectionView(frame: .zero,
                          collectionViewLayout: uiControl.collectionViewLayout())
     }()
 
-    private func makeUISlider() -> UISlider {
-        let slider = UISlider()
-        slider.minimumValue = -1
-        slider.maximumValue = 1
-        slider.value = 0
-        return slider
+    private func makeUISlider() -> CenteredSliderView! {
+        UINib(nibName: "\(CenteredSliderView.self)", bundle: nil).instantiate(withOwner: nil, options: nil).first as? CenteredSliderView
     }
 
     init() {
