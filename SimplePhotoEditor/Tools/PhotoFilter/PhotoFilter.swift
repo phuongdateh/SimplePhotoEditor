@@ -16,6 +16,11 @@ protocol PhotoFilterProtocol {
     func updateSaturation(value: Float)
     
     func outputImage() -> UIImage?
+    func temporarySave()
+    func doUndoStack() -> UIImage?
+    func doRedoStack() -> UIImage?
+    func undoShouldActive() -> Bool
+    func redoShouldActive() -> Bool
 }
 
 class PhotoFilter: PhotoFilterProtocol {
@@ -52,5 +57,34 @@ class PhotoFilter: PhotoFilterProtocol {
 
     func updateSaturation(value: Float) {
         colorControlsFilter?.setValue(NSNumber(value: value), forKey: kCIInputSaturationKey)
+    }
+    
+    lazy var undoStack: [UIImage?] = {
+        return [inputImage] // Original Image
+    }()
+    lazy var redoStack: [UIImage?] = []
+
+    func temporarySave() {
+        undoStack.append(outputImage())
+    }
+
+    func doRedoStack() -> UIImage? {
+        let data = undoStack.popLast() ?? inputImage
+        undoStack.append(data)
+        return data
+    }
+
+    func doUndoStack() -> UIImage? {
+        let data = redoStack.popLast() ?? inputImage
+        redoStack.append(data)
+        return data
+    }
+
+    func redoShouldActive() -> Bool {
+        !redoStack.isEmpty
+    }
+
+    func undoShouldActive() -> Bool {
+        undoStack.count > 1
     }
 }

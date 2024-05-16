@@ -26,10 +26,12 @@ class PhotoEditorViewController: UIViewController {
             action: #selector(PhotoEditorViewController.save(_:)))
     }
 
-    @IBOutlet weak var imageView: UIImageView!
-    @IBOutlet weak var brightnessSlider: UISlider!
-    @IBOutlet weak var contrastSlider: UISlider!
-    @IBOutlet weak var saturationSlider: UISlider!
+    @IBOutlet weak internal var imageView: UIImageView!
+    @IBOutlet weak internal var brightnessSlider: UISlider!
+    @IBOutlet weak internal var contrastSlider: UISlider!
+    @IBOutlet weak internal var saturationSlider: UISlider!
+    @IBOutlet weak internal var undoButton: UIButton!
+    @IBOutlet weak internal var redoButton: UIButton!
 
     internal lazy var photoFilter: PhotoFilterProtocol = PhotoFilter()
 
@@ -43,17 +45,18 @@ class PhotoEditorViewController: UIViewController {
         }
     }
 
-    var scaledImage: UIImage? {
+    internal var scaledImage: UIImage? {
         didSet {
-            updateImage()
+            updateView()
         }
     }
 
-    func updateImage() {
+    internal func updateView() {
         if let scaledImage = self.scaledImage {
             photoFilter.inputImage = scaledImage
             imageView.image = photoFilter.outputImage()
         }
+        updateUndoRedoButtonState()
     }
 
     @objc func close(_ sender: UIBarButtonItem) {
@@ -67,18 +70,18 @@ class PhotoEditorViewController: UIViewController {
     fileprivate func setupTargetUISlider() {
         brightnessSlider.addTarget(
             self,
-            action: #selector(PhotoEditorViewController.changeBrightness(_:)),
+            action: #selector(PhotoEditorViewController.changeBrightness(_:_:)),
             for: .valueChanged)
         contrastSlider.addTarget(
             self,
-            action: #selector(PhotoEditorViewController.changeContrast(_:)),
+            action: #selector(PhotoEditorViewController.changeContrast(_:_:)),
             for: .valueChanged)
         saturationSlider.addTarget(
             self,
-            action: #selector(PhotoEditorViewController.changeSaturation(_:)),
+            action: #selector(PhotoEditorViewController.changeSaturation(_:_:)),
             for: .valueChanged)
     }
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .black
@@ -99,5 +102,15 @@ class PhotoEditorViewController: UIViewController {
             .flexibleSpace
         ]
         navigationController?.isToolbarHidden = false
+    }
+
+    @IBAction func undoTouchUpInside(_ sender: UIButton) {
+        imageView.image = photoFilter.doUndoStack()
+        updateUndoRedoButtonState()
+    }
+
+    @IBAction func redoTouchUpInside(_ sender: UIButton) {
+        imageView.image = photoFilter.doRedoStack()
+        updateUndoRedoButtonState()
     }
 }
